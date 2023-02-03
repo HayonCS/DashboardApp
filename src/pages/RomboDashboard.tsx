@@ -203,19 +203,16 @@ export const RomboDashboard: React.FC<{
         assetGraphData_3.dataAll
       );
       setAssetStats_1({
-        ...assetStats_1,
         lastCycle: assetGraphData_1.lastCycle,
         cycleGoal: assetGraphData_1.cycleGoal,
         partNumber: assetGraphData_1.partNumber,
       });
       setAssetStats_2({
-        ...assetStats_2,
         lastCycle: assetGraphData_2.lastCycle,
         cycleGoal: assetGraphData_2.cycleGoal,
         partNumber: assetGraphData_2.partNumber,
       });
       setAssetStats_3({
-        ...assetStats_3,
         lastCycle: assetGraphData_3.lastCycle,
         cycleGoal: assetGraphData_3.cycleGoal,
         partNumber: assetGraphData_3.partNumber,
@@ -236,7 +233,6 @@ export const RomboDashboard: React.FC<{
           assetStats_3.cycleGoal) /
         3;
       setRomboStats({
-        ...romboStats,
         lastCycle: avgCycle,
         cycleGoal: cycleGoal,
         partNumbers: parts,
@@ -278,7 +274,7 @@ export const RomboDashboard: React.FC<{
     const date = new Date();
     const stamp = getTimeStringConnection(date);
     setDashboardStats({
-      ...dashboardStats,
+      lastCycle: dashboardStats.lastCycle,
       lastUpdate: date,
       lastUpdateString: stamp,
     });
@@ -289,14 +285,6 @@ export const RomboDashboard: React.FC<{
     console.log("Loading Data...");
     loadDebounce();
   }, [dashboardData, graphData]);
-
-  const columns = [
-    { field: "shift", headerName: "Shift", width: 90 },
-    { field: "partNumber", headerName: "Part", width: 90 },
-    { field: "passes", headerName: "Pass", width: 90 },
-    { field: "fails", headerName: "Fail", width: 90 },
-    { field: "efficiency", headerName: "Efficiency", width: 90 },
-  ];
 
   return (
     <div className={classes.app}>
